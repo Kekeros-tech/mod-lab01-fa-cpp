@@ -5,30 +5,30 @@
 
 unsigned int faStr1(const char *str) {
     int count = 0;
-    bool inWord = false;
+    bool in_word = false;
     int iteration = 0;
-    bool containsNumber = false;
+    bool contains_number = false;
     while (str[iteration]) {
-        char currentChar = str[iteration];
-        if (inWord == false && currentChar != ' ')
+        char current_char = str[iteration];
+        if (in_word == false && current_char != ' ')
         {
-            inWord = true;
+            in_word = true;
             count++;
         }
-        else if (inWord == true && currentChar == ' ')
+        else if (in_word == true && current_char == ' ')
         {
-            if (containsNumber) {
-                containsNumber = false;
+            if (contains_number) {
+                contains_number = false;
                 count--;
             }
-            inWord = false;
+            in_word = false;
         }
-        if (inWord == true && isdigit(currentChar)) {
-            containsNumber = true;
+        if (in_word == true && isdigit(current_char)) {
+            contains_number = true;
         }
         iteration++;
     }
-    if (containsNumber) {
+    if (contains_number) {
         return count - 1;
     }
     return count;
@@ -36,40 +36,40 @@ unsigned int faStr1(const char *str) {
 
 unsigned int faStr2(const char *str) {
     int count = 0;
-    bool inWord = false;
+    bool in_word = false;
     int iteration = 0;
-    bool correctWord = false;
+    bool correct_word = false;
     while (str[iteration]) {
-        char currentChar = str[iteration];
-        int numberOfChar = (int)currentChar;
-        if (inWord == false && currentChar != ' ')
+        char current_char = str[iteration];
+        int number_of_char = (int)current_char;
+        if (in_word == false && current_char != ' ')
         {
-            inWord = true;
-            if (65 <= numberOfChar && numberOfChar <= 90) {
-                correctWord = true;
+            in_word = true;
+            if (65 <= number_of_char && number_of_char <= 90) {
+                correct_word = true;
             }
             count++;
         }
-        else if (inWord == true && currentChar == ' ')
+        else if (in_word == true && current_char == ' ')
         {
-            if (correctWord) {
+            if (correct_word) {
             }
             else {
                 count--;
             }
-            correctWord = false;
-            inWord = false;
+            correct_word = false;
+            in_word = false;
         }
-        else if (inWord == true && currentChar != ' ') {
-            if (numberOfChar < 97 || numberOfChar > 122)
+        else if (in_word == true && current_char != ' ') {
+            if (number_of_char < 97 || number_of_char > 122)
             {
-                correctWord = false;
+                correct_word = false;
             }
 
         }
         iteration++;
     }
-    if (correctWord == false) {
+    if (correct_word == false) {
         return count - 1;
     }
     return count;
@@ -78,21 +78,20 @@ unsigned int faStr2(const char *str) {
 unsigned int faStr3(const char *str) {
     int count = 0;
     float characters = 0;
-    bool inWord = false;
+    bool in_word = false;
     int iteration = 0;
-    bool containsNumber = false;
     while (str[iteration]) {
-        char currentChar = str[iteration];
-        if (inWord == false && currentChar != ' ')
+        char current_char = str[iteration];
+        if (in_word == false && current_char != ' ')
         {
-            inWord = true;
+            in_word = true;
             count++;
         }
-        else if (inWord == true && currentChar == ' ')
+        else if (in_word == true && current_char == ' ')
         {
-            inWord = false;
+            in_word = false;
         }
-        if (inWord == true) {
+        if (in_word == true) {
             characters++;
         }
         iteration++;
