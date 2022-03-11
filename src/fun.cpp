@@ -13,8 +13,7 @@ unsigned int faStr1(const char *str) {
         if (in_word == false && current_char != ' ') {
             in_word = true;
             count++;
-        }
-        else if (in_word == true && current_char == ' ') {
+        } else if (in_word == true && current_char == ' ') {
             if (contains_number) {
                 contains_number = false;
                 count--;
