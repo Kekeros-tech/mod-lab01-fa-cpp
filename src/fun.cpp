@@ -10,13 +10,11 @@ unsigned int faStr1(const char *str) {
     bool contains_number = false;
     while (str[iteration]) {
         char current_char = str[iteration];
-        if (in_word == false && current_char != ' ')
-        {
+        if (in_word == false && current_char != ' ') {
             in_word = true;
             count++;
         }
-        else if (in_word == true && current_char == ' ')
-        {
+        else if (in_word == true && current_char == ' ') {
             if (contains_number) {
                 contains_number = false;
                 count--;
@@ -41,31 +39,23 @@ unsigned int faStr2(const char *str) {
     bool correct_word = false;
     while (str[iteration]) {
         char current_char = str[iteration];
-        int number_of_char = (int)current_char;
-        if (in_word == false && current_char != ' ')
-        {
+        int number_of_char = static_cast<int>(current_char);
+        if (in_word == false && current_char != ' ') {
             in_word = true;
             if (65 <= number_of_char && number_of_char <= 90) {
                 correct_word = true;
             }
             count++;
-        }
-        else if (in_word == true && current_char == ' ')
-        {
-            if (correct_word) {
-            }
-            else {
+        } else if (in_word == true && current_char == ' ') {
+            if (!correct_word) {
                 count--;
             }
             correct_word = false;
             in_word = false;
-        }
-        else if (in_word == true && current_char != ' ') {
-            if (number_of_char < 97 || number_of_char > 122)
-            {
+        } else if (in_word == true && current_char != ' ') {
+            if (number_of_char < 97 || number_of_char > 122) {
                 correct_word = false;
             }
-
         }
         iteration++;
     }
@@ -82,13 +72,10 @@ unsigned int faStr3(const char *str) {
     int iteration = 0;
     while (str[iteration]) {
         char current_char = str[iteration];
-        if (in_word == false && current_char != ' ')
-        {
+        if (in_word == false && current_char != ' ') {
             in_word = true;
             count++;
-        }
-        else if (in_word == true && current_char == ' ')
-        {
+        } else if (in_word == true && current_char == ' ') {
             in_word = false;
         }
         if (in_word == true) {
