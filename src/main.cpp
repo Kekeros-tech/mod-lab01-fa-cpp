@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main() {
-    const char* string = "This is 1first try to get result";
+    const char* string = "This is my 1first Try to....";
     faStr1(string);
     faStr2(string);
     faStr3(string);
